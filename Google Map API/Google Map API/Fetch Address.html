@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Google Maps API | Vaibhav</title>
+<link rel="icon" href="assets/images/favicon.ico" type="image/gif" sizes="8x8">
+<link rel="stylesheet" href="Styles.css">
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB22Ylw7Tt6vE1-bhMBLkh9d_oe7wl7PjU&libraries=places"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<meta name="description" content="Vaibhav Mehta">
+<script src="Map.js"></script>
+</head>
+<body>
+<h1 class="text-center pt50">Google Map API</h1>
+<section class="FetchAddressSection p50-0">
+<div class="FetchAddressOuter">
+<div class="wrapper">
+<div class="FetchAddressInner">
+<div class="FetchAddressTitle">
+<h4>Fetch Address from Latitude & Longitude</h4>
+</div>
+<div class="FetchAddressForm pt30">
+<form class="google-form">
+    <input class="input" type="text" id="latitude" name="latitude" placeholder="Enter Latitude">
+    <input class="input" type="text" id="longitude" name="longitude" placeholder="Enter Longitude">
+    <div class="parent-submit">
+    <img src="https://uploads-ssl.webflow.com/609454a1070ccc0576d1924d/609454a1070ccc20b1d19286_arrow-blue.svg" loading="lazy" alt="" class="arrow-ab">
+    <input class="submit" type="submit" value="Fetch Address">
+</div>
+</form>
+
+<h6>Address: <span id="address"></span></h6>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="FetchNearbyCompanies">
+<div class="FetchNearbyCompaniesOuter">
+<div class="wrapper">
+<div class="FetchNearbyCompaniesInner">
+<div class="FetchNearbyCompaniesTitle d_flex align_center">
+<h4>Fetch Near By</h4>
+<select class="select" name="nearby_places" id="nearby_places">
+    <option value="accounting">Accounting</option>
+    <option value="airport">Airport</option>
+    <option value="amusement_park">Amusement Park</option>
+    <option value="aquarium">Aquarium</option>
+    <option value="art_gallery">Art Gallery</option>
+    <option value="atm">ATM</option>
+    <option value="bakery">Bakery</option>
+    <option value="bank">Bank</option>
+    <option value="bar">Bar</option>
+    <option value="beauty_salon">Beauty Salon</option>
+    <option value="bicycle_store">Bicycle Store</option>
+    <option value="book_store">Book Store</option>
+    <option value="bowling_alley">Bowling Alley</option>
+    <option value="bus_station">Bus Station</option>
+    <option value="cafe">Cafe</option>
+    <option value="campground">Campground</option>
+    <option value="car_dealer">Car Dealer</option>
+    <option value="car_rental">Car Rental</option>
+    <option value="car_repair">Car Repair</option>
+    <option value="car_wash">Car Wash</option>
+    <option value="casino">Casino</option>
+    <option value="church">Church</option>
+    <option value="city_hall">City Hall</option>
+    <option value="convenience_store">Convenience Store</option>
+    <option value="courthouse">CourtHouse</option>
+    <option value="dentist">Dentist</option>
+    <option value="department_store">Department Store</option>
+    <option value="doctor">Doctor</option>
+    <option value="drugstore">Drugstore</option>
+    <option value="electrician">Electrician</option>
+    <option value="electronics_store">Electronics Store</option>
+    <option value="embassy">Embassy</option>
+    <option value="fire_station">Fire Station</option>
+    <option value="florist">Florist</option>
+    <option value="funeral_home">Funeral Home</option>
+    <option value="furniture_store">Furniture Store</option>
+    <option value="gas_station">Gas Station</option>
+    <option value="gym">Gym</option>
+    <option value="hair_care">Hair Care</option>
+    <option value="hardware_store">Hardware Store</option>
+    <option value="hindu_temple">Hindu Temple</option>
+    <option value="hospital">Hospital</option>
+    <option value="insurance_agency">Insurance Agency</option>
+    <option value="jewelry_store">Jewelry Store</option>
+    <option value="laundry">Laundry</option>
+    <option value="lawyer">Lawyer</option>
+    <option value="library">Library</option>
+    <option value="liquor_store">Liquor Store</option>
+    <option value="local_government_office">Local Government Office</option>
+    <option value="locksmith">Locksmith</option>
+    <option value="lodging">Lodging</option>
+    <option value="meal_delivery">Meal Delivery</option>
+    <option value="meal_takeaway">Meal Takeaway</option>
+    <option value="mosque">Mosque</option>
+    <option value="movie_rental">Movie Rental</option>
+    <option value="movie_theater">Movie Theater</option>
+    <option value="moving_company">Moving Company</option>
+    <option value="museum">Museum</option>
+    <option value="night_club">Night Club</option>
+    <option value="painter">Painter</option>
+    <option value="park">Park</option>
+    <option value="parking">Parking</option>
+    <option value="pet_store">Pet Store</option>
+    <option value="pharmacy">Pharmacy</option>
+    <option value="physiotherapist">Physiotherapist</option>
+    <option value="plumber">Plumber</option>
+    <option value="police">Police</option>
+    <option value="post_office">Post Office</option>
+    <option value="primary_school">Primary School</option>
+    <option value="real_estate_agency">Real Estate Agency</option>
+    <option value="restaurant">Restaurant</option>
+    <option value="roofing_contractor">Roofing Contractor</option>
+    <option value="rv_park">Rv Park</option>
+    <option value="school">School</option>
+    <option value="secondary_school">secondary School</option>
+    <option value="shoe_store">Shoe Store</option>
+    <option value="shopping_mall">Shopping Mall</option>
+    <option value="spa">Spa</option>
+    <option value="stadium">Stadium</option>
+    <option value="storage">Storage</option>
+    <option value="store">Store</option>
+    <option value="subway_station">Subway Station</option>
+    <option value="supermarket">Supermarket</option>
+    <option value="synagogue">Synagogue</option>
+    <option value="taxi_stand">Taxi Stand</option>
+    <option value="tourist_attraction">Tourist Attraction</option>
+    <option value="train_station">Train Station</option>
+    <option value="transit_station">Transit Station</option>
+    <option value="travel_agency">Travel Agency</option>
+    <option value="university">University</option>
+    <option value="veterinary_care">Veterinary Care</option>
+    <option value="zoo">Zoo</option>
+  </select>
+</div>
+<div class="CompaniesMap pt50">
+<div id="my-map"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- <script>
+var latitude = $("input[name='latitude']").val(); 
+var longitude = $("input[name='longitude']").val();
+var  map;   
+
+function fetchAddressFromLatLng(latitude, longitude) {
+var geocoder = new google.maps.Geocoder();
+var latlng = new google.maps.LatLng(latitude, longitude);
+
+geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+if (status === google.maps.GeocoderStatus.OK) {
+if (results[0]) {
+document.getElementById('address').innerHTML = results[0].formatted_address;
+} else {
+document.getElementById('address').innerHTML = 'No address found';
+}
+} else {
+document.getElementById('address').innerHTML = 'Geocoder failed due to: ' + status;
+}
+});
+}
+
+function loadMap(options){
+map = new google.maps.Map(document.getElementById("my-map"), options);
+}
+
+$(document).on("click","input[type='submit']", function(e){
+e.preventDefault();
+var latitude = $("input[name='latitude']").val(); 
+var longitude = $("input[name='longitude']").val(); 
+// console.log("Latitude",latitude,"Longitude",longitude);
+fetchAddressFromLatLng(latitude, longitude);
+var latlng = new google.maps.LatLng(latitude, longitude);
+var mapOptions = {
+zoom: 14,
+center: latlng,
+mapTypeId: google.maps.MapTypeId.ROADMAP
+};
+
+loadMap(mapOptions);
+
+})
+
+</script> -->
+</body>
+</html>
